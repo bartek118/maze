@@ -3,10 +3,12 @@
 
 class Maze {
 	public:
-		Maze() {
-			size = 20;
+		Maze(unsigned n) {
+			size = n;
 			generateMaze();
 		}
+
+		Maze() : Maze(20) {}
 
 		~Maze();
 
