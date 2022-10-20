@@ -1,6 +1,7 @@
 #include "maze.hpp"
 
 #include <iostream>
+#include <fstream>
 
 #include <ctime>
 #include <cstdlib>
@@ -87,4 +88,15 @@ void Maze::print() {
 		}
 		std::cout << std::endl;
 	}
+}
+
+void Maze::saveToFile() {
+	std::ofstream file("outputMaze.out");
+	for(unsigned i = 0; i <= 2*this->size; i++) {
+		for(unsigned j = 0; j <= 2*this->size; j++) {
+			file << mazeArray[i*(2*this->size+1) + j];
+		}
+		file << std::endl;
+	}
+	file.close();
 }

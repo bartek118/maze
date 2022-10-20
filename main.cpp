@@ -18,6 +18,7 @@ void main::start(int argc, char* argv[]) {
                 exit(0);
         }
         m->print();
+	m->saveToFile();
         delete m;
 }
 

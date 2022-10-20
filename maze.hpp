@@ -13,6 +13,7 @@ class Maze {
 		~Maze();
 
 		void print();
+		void saveToFile();
 
 	private:
 		bool* mazeArray;
