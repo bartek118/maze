@@ -11,6 +11,7 @@
 #include <vector>
 
 void Maze::generateMaze() {
+	std::cout << "Generating maze... ";
 	unsigned size2 = (2*this->size+1)*(2*this->size+1);
 	this->mazeArray = new bool[size2];
 
@@ -70,6 +71,7 @@ void Maze::generateMaze() {
 			neighbors.erase(neighbors.begin()+k);
 		}
 	}
+	std::cout << "done." << std::endl;
 }
 
 Maze::~Maze() {
@@ -91,7 +93,14 @@ void Maze::print() {
 }
 
 void Maze::saveToFile() {
+	std::cout << "Saving to file ./outputMaze.out... ";
 	std::ofstream file("outputMaze.out");
+
+	if(!file.is_open()) {
+		std::cout << "error during opening the file." << std::endl;
+		return;
+	}
+
 	for(unsigned i = 0; i <= 2*this->size; i++) {
 		for(unsigned j = 0; j <= 2*this->size; j++) {
 			file << mazeArray[i*(2*this->size+1) + j];
@@ -99,4 +108,5 @@ void Maze::saveToFile() {
 		file << std::endl;
 	}
 	file.close();
+	std::cout << "done." << std::endl;
 }
